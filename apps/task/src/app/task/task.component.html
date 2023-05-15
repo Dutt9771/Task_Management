@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid me-auto">
+      <a class="navbar-brand">Task List</a>
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <ng-container class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
+          <button type="button" data-mdb-toggle="modal" data-mdb-target="#Add" class="btn btn-outline-success" type="button" (click)="ADD_Task()">ADD</button>
+        </ng-container>
+    </div>
+  </nav>
+
+  <div class="container mt-3" *ngIf="Tasks.length;else noTasks">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3" *ngFor="let task of Tasks" >
+      <div class="col w-100" >
+<task-management-card [taskObj]="task" (CardId)="get_CardId($event[0],$event[1],$event[2],$event[3],$event[4])"></task-management-card>
+      </div>
+</div>
+</div>
+<ng-template #noTasks>
+  <div class="text-center text-danger">
+    No Task Found, Please Add
+  </div>
+</ng-template>

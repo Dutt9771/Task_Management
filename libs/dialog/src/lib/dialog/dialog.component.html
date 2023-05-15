@@ -1,0 +1,92 @@
+<div class="container">
+
+
+    <div class="d-flex justify-content-center mt-3">
+<h4>{{title}}</h4>
+</div>
+<hr>
+
+
+<form
+      class="row g-3 d-flex justify-content-center container"
+      [formGroup]="task_form"
+      novalidate
+    >
+      <div class="row g-3 d-flex justify-content-center">
+        <div class="col-md-8">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            formControlName="title"
+            class="form-control"
+            id="title"
+            placeholder="Enter Title"
+          />
+        </div>
+      </div>
+      <div
+        *ngIf="get_user.title.touched && get_user.title.invalid"
+        class="text-danger text-center"
+      >
+        <div
+          *ngIf="get_user.title.errors?.['required']"
+          class="text-danger"
+        >
+          title Must Required
+        </div>
+      </div>
+      <div class="row g-3 d-flex justify-content-center">
+        <div class="col-md-8">
+          <label for="description" class="form-label">Description</label>
+          <textarea
+            type="text"
+            formControlName="description"
+            class="form-control"
+            id="description"
+            placeholder="Enter description"
+          ></textarea>
+        </div>
+        <div
+          *ngIf="get_user.description.touched && get_user.description.invalid"
+          class="text-danger text-center"
+        >
+          <div
+            *ngIf="get_user.description.errors?.['required']"
+            class="text-danger"
+          >
+            Description Must Required
+          </div>
+        </div>
+      </div>
+      <div class="row g-3 d-flex justify-content-center ">
+        <div class="col-md-8">
+          <label for="category" class="form-label">Category</label>
+          <input
+            type="text"
+            formControlName="category"
+            class="form-control"
+            id="category"
+            placeholder="Enter category"
+          />
+        </div>
+        <div
+          *ngIf="get_user.category.touched && get_user.category.invalid"
+          class="text-danger text-center"
+        >
+          <div
+            *ngIf="get_user.category.errors?.['required']"
+            class="text-danger"
+          >
+            category Must Required
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer row g-2 d-flex justify-content-center container-fluid mt-2">
+            <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-transparent btn-outline-success ms-auto me-auto" (click)="onSubmit()">{{button}}</button>
+        <button type="button" class="btn btn-transparent btn-outline-dark ms-auto me-auto" (click)="onCancel()">Cancel</button>
+    </div>
+      </div>
+      
+    </form>
+</div>	

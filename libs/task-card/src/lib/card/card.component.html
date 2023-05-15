@@ -1,0 +1,23 @@
+
+<div class="card bg-white p-2 m-2"  [ngClass]="{'bg-success-subtle text-emphasis-success': taskObj.completed, 'bg-light-subtle text-emphasis-light': !taskObj.completed}">
+    <div class="card-body g-2 ">
+      <div (click)="ShowDetails(taskObj.id)" style="cursor: pointer;">
+
+        <h5 class="card-title text-left mb-auto">Title : {{taskObj.title}}</h5>
+        <p class="card-text">Description : {{taskObj.description}}</p>
+        <p class="card-text">Category : {{taskObj.category}}</p>
+        
+      </div>
+<!-- <h3>Name: {{dataToExchange.name}}</h3>
+<h3>Surname: {{dataToExchange.email}}</h3>
+<h3>Surname: {{dataToExchange.mobile}}</h3> -->
+<div class="d-flex justify-content-end mt-2">
+  <button class="btn btn-transparent btn-outline-success ms-auto me-2" (click)="Completed(taskObj.id)"  *ngIf="taskObj.completed">Not Completed</button>
+  <button class="btn btn-transparent btn-outline-success ms-auto me-2" (click)="Completed(taskObj.id)"  *ngIf="!taskObj.completed">Completed</button>
+  <button class="btn btn-transparent btn-outline-success ms-2 me-2" (click)="EditTask(taskObj.id)"  *ngIf="!taskObj.completed">Edit</button>
+  <button class="btn btn-transparent btn-outline-danger ms-2 me-auto " (click)="DeleteTask(taskObj.id)">Delete</button>
+</div>
+    </div>
+  </div>
+
+  <!-- <user-crud-dialog-form (EditUser)="Edituser($event)"></user-crud-dialog-form> -->
